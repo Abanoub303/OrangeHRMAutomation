@@ -2,15 +2,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-//import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class OrangeHRMAutomation {
     public static void main(String[] args) {
-        // Set up the Chrome WebDriver
-        //System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        
         WebDriver driver = new ChromeDriver();
 
-        //try {
+        try{
             // Step 1: Navigate to the OrangeHRM login page
             driver.get("https://opensource-demo.orangehrmlive.com/");
 
@@ -26,9 +25,6 @@ public class OrangeHRMAutomation {
             WebElement loginButton = driver.findElement(By.id("btnLogin"));
             loginButton.click();
 
-            // Wait until the page loads completely
-            //WebDriverWait wait = new WebDriverWait(driver, 10);
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("menu_admin_viewAdminModule")));
 
             // Step 5: Click on Admin tab on the left side menu
             WebElement adminTab = driver.findElement(By.id("menu_admin_viewAdminModule"));
@@ -66,38 +62,27 @@ public class OrangeHRMAutomation {
             WebElement saveButton = driver.findElement(By.id("btnSave"));
             saveButton.click();
 
-            // Wait until the page reloads
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultTable")));
 
-
-            // Step 11: Search for the new user by username
+            // Step 10: Search for the new user by username
             WebElement searchUsernameField = driver.findElement(By.id("searchSystemUser_userName"));
             searchUsernameField.sendKeys("abanoub_alaa");
 
             WebElement searchButton = driver.findElement(By.id("searchBtn"));
             searchButton.click();
 
-            // Wait for the search results to appear
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultTable")));
 
-            // Step 12: Delete the new user
+            // Step 11: Delete the new user
             WebElement checkbox = driver.findElement(By.xpath("//a[text()='abanoub_alaa']/../../td[1]/input"));
             checkbox.click();
             WebElement deleteButton = driver.findElement(By.id("btnDelete"));
             deleteButton.click();
-
-            // Confirm the deletion in the alert
-            //driver.switchTo().alert().accept();
-
-            // Wait for the page to reload
-            //wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resultTable")));
             
 
-       // } //catch (Exception e) {
-            //e.printStackTrace();
+         } catch (Exception e) {
+            e.printStackTrace();
         } //finally {
             // Step 14: Close the browser
             //driver.quit();
         //}
     }
-//}
+}
